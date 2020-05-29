@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHONE BOOK</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+  <div class="row mt-4">
+    <div class="offset-md-3 col-md-6">
+      <h1>Contact List</h1>
+      <hr />
+
+      <ul class="list-group">
+        <% for(var i=0; i<contacts.length; i++) { %>
+          <% if(contacts[i].completed) { %>
+          <li class="list-group-item font-italic list-group-item-light" style="text-decoration: line-through">
+          <% } else { %>
+          <li class="list-group-item">
+          <% } %>
+            <p><%=contacts[i].name%><br/>&#128222;<%=contacts[i].mobile%><br/>&#x1f4e7;<%=contacts[i].email%></p>
+            <a href="/contact/<%=contacts[i]._id%>/delete" class="btn btn-danger btn-sm float-right">Remove</a>
+            <a href="/contact/<%=contacts[i]._id%>/edit" class="btn btn-success btn-sm float-right mr-1">Edit</a>
+          </li>        
+        <% } %>
+      </ul>
+      <a href="/contact/addcontact" class="btn btn-success btn-sm float-right mr-1">&#43;</a>
+    </div>
+  </div>
+  
+</div>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>PHONE BOOK</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+  <div class="row mt-4">
+    <div class="offset-md-3 col-md-6">
+      <h1>Add Contacts</h1>
+      <hr />
+
+      <% if(typeof errorMsg !=='undefined' && errorMsg) { %>
+        <div class="alert alert-danger"><%=errorMsg%></div>
+      <% } %>
+
+      <form action="/contact/addcontact" method="post">
+        <div class="form-group">
+          <label for="NAME">NAME</label>
+          <input type="text" id="NAME" class="form-control" name="NAME"/>
+        </div>
+       
+        
+      <div class="form-group">
+        <label for="DOB">Date of Birth</label>
+        <input type="date" id="DOB" class="form-control" name="DOB" />
+      </div>
+      
+        <div class="form-group">
+          <label for="phone">Mobile Number</label>
+          <input type="tel" id="phone" class="form-control" placeholder="ten digit number" name="phone"  pattern="[0-9]{10}" required>
+        </div>
+
+        <div class="form-group">
+          <label for="Email">Email ID</label>
+          <input type="text" id="Email" class="form-control" name="Email" />
+        </div>
+
+
+        <button class="btn btn-primary btn-lg">SAVE</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+</body>
+
+</html>
